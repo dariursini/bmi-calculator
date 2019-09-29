@@ -11,10 +11,16 @@ import { Patient } from '../../Model/patient';
 export class TableComponent implements OnInit {
   patients: Patient[] = [];
 
-  constructor(private patientService: PatientService ) { }
+  constructor(private patientService: PatientService) {}
 
   ngOnInit() {
     this.patients = this.patientService.getPatients();
+    this.patientService.patientChanged.subscribe(
+      (newPatients: Patient[]) => (this.patients = newPatients)
+    );
   }
 
+  calculateBmi(weight: number, height: number) {
+    return (weight / (height * height)).toFixed(2);
+  }
 }
