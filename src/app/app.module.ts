@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FormComponent } from './form/form.component';
-import { TableComponent } from './table/table.component';
+import { FormComponent } from './patient/form/form.component';
+import { TableComponent } from './patient/table/table.component';
+import { PatientService } from './patient.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { TableComponent } from './table/table.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
